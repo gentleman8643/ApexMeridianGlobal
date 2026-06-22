@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Meridian Global</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">APEX MERIDIAN GLOBAL</a>
+      <div class="nav-links">
+        <a href="#matrix" class="nav-link" data-i18n="nav.alliances">Alliances</a>
+        <a href="#gateway" class="nav-link" data-i18n="nav.directives">Directives</a>
+        <div class="language-selector">
+          <button class="lang-btn" id="langBtn">
+            <span id="currentLang">EN</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-option" data-lang="en">English</button>
+            <button class="lang-option" data-lang="fr">Francais</button>
+            <button class="lang-option" data-lang="es">Espanol</button>
+          </div>
+        </div>
+        <a href="#gateway" class="btn-portal" data-i18n="nav.portal">Access Portal</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#matrix" class="mobile-link" data-i18n="nav.alliances">Alliances</a>
+    <a href="#gateway" class="mobile-link" data-i18n="nav.directives">Directives</a>
+    <div class="mobile-lang">
+      <button class="lang-option active" data-lang="en">English</button>
+      <button class="lang-option" data-lang="fr">Francais</button>
+      <button class="lang-option" data-lang="es">Espanol</button>
+    </div>
+    <a href="#gateway" class="btn-portal" data-i18n="nav.portal">Access Portal</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="threshold">
+    <div class="hero-content">
+      <div class="hero-badge" data-i18n="hero.badge">Established Network</div>
+      <h1 class="hero-title" data-i18n="hero.title">The Central Gateway to Sovereign Networks & Historic Orders.</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Facilitating secure entry, strategic alignment, and verified direction across global councils, elite fraternities, and esoteric legacies.</p>
+      <div class="hero-cta">
+        <a href="#gateway" class="btn-primary" data-i18n="hero.cta1">Initiate Intake Consultation</a>
+        <a href="#matrix" class="btn-secondary" data-i18n="hero.cta2">Review Public Mandate</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="geometric-frame">
+        <div class="frame-inner">
+          <div class="frame-line"></div>
+          <div class="frame-line"></div>
+          <div class="frame-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network Explorer -->
+  <section class="matrix-section" id="matrix">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="matrix.label">Network Directory</span>
+        <h2 class="section-title" data-i18n="matrix.title">The Matrix of Alliances</h2>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs-container">
+        <div class="tabs" id="networkTabs">
+          <button class="tab-btn active" data-tab="geopolitical" data-i18n="tabs.geopolitical">Geopolitical & Institutional Councils</button>
+          <button class="tab-btn" data-tab="fraternities" data-i18n="tabs.fraternities">Historic Fraternities & Esoteric Orders</button>
+          <button class="tab-btn" data-tab="clubs" data-i18n="tabs.clubs">Exclusive Collegiate & Private Clubs</button>
+          <button class="tab-btn" data-tab="cultures" data-i18n="tabs.cultures">Creative Cultures & Pop Traditions</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content-container">
+          <!-- Geopolitical Tab -->
+          <div class="tab-content active" id="tab-geopolitical">
+            <div class="network-grid">
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Bilderberg Group</h3>
+                  <p class="network-definition">An annual, private conference established to foster high-level dialogue between political leaders, industrial titans, and global finance experts.</p>
+                  <p class="network-structure"><span>Structure:</span> Governed by an international steering committee under Chatham House Rule to ensure absolute discretion.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The World Economic Forum (WEF / Davos)</h3>
+                  <p class="network-definition">An international non-governmental organization acting as a global platform for public-private cooperation to shape regional and industry agendas.</p>
+                  <p class="network-structure"><span>Structure:</span> Composed of institutional members, corporate partners, and an annual assembly in Davos, Switzerland.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Council on Foreign Relations (CFR)</h3>
+                  <p class="network-definition">A prominent independent think-tank and publisher specializing in international affairs and foreign policy analysis.</p>
+                  <p class="network-structure"><span>Structure:</span> Operating as a non-profit membership organization composed of political, academic, and corporate leaders.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Rothschild Family Legacy</h3>
+                  <p class="network-definition">A historic, global banking dynasty that pioneered international finance and private asset management across Europe.</p>
+                  <p class="network-structure"><span>Structure:</span> Organized through generations of private banking houses, sovereign wealth structures, and independent estates.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Rockefeller Family Legacy</h3>
+                  <p class="network-definition">An influential industrial and philanthropic dynasty central to the evolution of modern energy markets, medical research, and global institutions.</p>
+                  <p class="network-structure"><span>Structure:</span> Managed through private family offices, foundations, and long-standing real estate trusts.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fraternities Tab -->
+          <div class="tab-content" id="tab-fraternities">
+            <div class="network-grid">
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">Freemasonry</h3>
+                  <p class="network-definition">One of the world's oldest and largest fraternal organizations, focusing on moral self-improvement and philosophical study through allegorical symbols.</p>
+                  <p class="network-structure"><span>Structure:</span> Organized into local Lodges overseen by regional Grand Lodges, utilizing a system of progressive degrees.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Rosicrucians</h3>
+                  <p class="network-definition">A cultural and philosophical movement originating in medieval Europe, blending Christian mysticism, alchemy, and esoteric wisdom.</p>
+                  <p class="network-structure"><span>Structure:</span> Expressed through various modern fraternities and colleges dedicated to the study of natural laws and human potential.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Hermetic Order of the Golden Dawn</h3>
+                  <p class="network-definition">A highly influential magical and esoteric order founded in late 19th-century England, dedicated to Western Hermeticism.</p>
+                  <p class="network-structure"><span>Structure:</span> Separated into an Outer Order for theory and an Inner Order for practical ritual, mapped across a Kabbalistic grade system.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Ordo Templi Orientis (O.T.O.)</h3>
+                  <p class="network-definition">An international esoteric fraternal organization dedicated to the philosophical law of Thelema and spiritual self-realization.</p>
+                  <p class="network-structure"><span>Structure:</span> Structured as a multi-degree initiatory system combining fraternal brotherhood with ritual exploration.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Knights Templar Legacy</h3>
+                  <p class="network-definition">A historic, medieval Catholic military order that evolved into a powerful symbol of chivalry, banking, and crusader history.</p>
+                  <p class="network-structure"><span>Structure:</span> Modeled historically as a monastic-military hierarchy, preserved today through modern chivalric and historical societies.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Theosophical Society</h3>
+                  <p class="network-definition">An organization formed to advance the philosophy of Theosophy, seeking to investigate the unexplained laws of nature and human potential.</p>
+                  <p class="network-structure"><span>Structure:</span> Formed as an international membership body divided into regional sections, lodges, and research centers.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clubs Tab -->
+          <div class="tab-content" id="tab-clubs">
+            <div class="network-grid">
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">University Societies (Skull and Bones, Scroll and Key, Wolf's Head)</h3>
+                  <p class="network-definition">Elite senior societies established at Ivy League institutions, serving as career-spanning alumni networks for prominent leaders.</p>
+                  <p class="network-structure"><span>Structure:</span> Strictly limited to co-opting a small, fixed number of select undergraduate students annually, maintaining secure private facilities.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Bohemian Club (Bohemian Grove)</h3>
+                  <p class="network-definition">A private, exclusive club for artists, musicians, business leaders, and government officials founded in San Francisco.</p>
+                  <p class="network-structure"><span>Structure:</span> Governed as a private gentleman's club hosting an annual multi-week summer encampment in Sonoma County, California.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Seven Society</h3>
+                  <p class="network-definition">A highly secretive philanthropic and honorary society operating exclusively within the University of Virginia.</p>
+                  <p class="network-structure"><span>Structure:</span> Absolute anonymity is maintained throughout a member's lifetime, with identities only revealed publicly after passing.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cultures Tab -->
+          <div class="tab-content" id="tab-cultures">
+            <div class="network-grid">
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">The Illuminati Tradition</h3>
+                  <p class="network-definition">Originally a historical Enlightenment-era secret society founded in 1776 Bavaria; now a powerful symbol of overarching global systems in modern commentary.</p>
+                  <p class="network-structure"><span>Structure:</span> Historically structured on strict rationalist degrees; modern interpretations exist as a prominent pop-culture motif.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">Vampire Subcultures</h3>
+                  <p class="network-definition">A decentralized contemporary subculture centered on the appreciation of Gothic literature, dark aesthetics, and symbolic historical lore.</p>
+                  <p class="network-structure"><span>Structure:</span> Organized organically through creative arts, styling groups, fashion circles, and independent local digital communities.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">Goth/Alternative Communities</h3>
+                  <p class="network-definition">A global artistic subculture focused on alternative music genres, gothic architecture, dark romanticism, and unique self-expression.</p>
+                  <p class="network-structure"><span>Structure:</span> Fully decentralized and driven by global musical festivals, creative labels, fashion houses, and nightlife spaces.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="network-card">
+                <div class="network-info">
+                  <h3 class="network-title">Pop Culture "Secret Cabals"</h3>
+                  <p class="network-definition">A modern cultural phenomenon reflecting societal fascination with hidden networks, often mirrored in cinema, music videos, and literature.</p>
+                  <p class="network-structure"><span>Structure:</span> Operating as an influential conceptual aesthetic across media production, trend-setting, and artistic branding.</p>
+                </div>
+                <div class="network-media">
+                  <div class="media-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span>Image Asset</span>
+                  </div>
+                  <div class="media-placeholder video">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video Asset</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gateway Form -->
+  <section class="gateway-section" id="gateway">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="gateway.label">Secure Access</span>
+        <h2 class="section-title" data-i18n="gateway.title">The Gateway</h2>
+        <p class="section-desc" data-i18n="gateway.desc">Submit your credentials for vetted entry into sovereign networks.</p>
+      </div>
+
+      <div class="form-container">
+        <form id="intakeForm" class="intake-form">
+          <div class="form-group">
+            <label for="designation" data-i18n="form.designation">Candidate Designation</label>
+            <input type="text" id="designation" name="designation" required>
+          </div>
+
+          <div class="form-group">
+            <label for="alignment" data-i18n="form.alignment">Network Alignment</label>
+            <select id="alignment" name="alignment" required>
+              <option value="" data-i18n="form.selectNetwork">Select a network</option>
+              <option value="bilderberg">The Bilderberg Group</option>
+              <option value="wef">World Economic Forum</option>
+              <option value="cfr">Council on Foreign Relations</option>
+              <option value="rothschild">Rothschild Family Legacy</option>
+              <option value="rockefeller">Rockefeller Family Legacy</option>
+              <option value="freemasonry">Freemasonry</option>
+              <option value="rosicrucians">The Rosicrucians</option>
+              <option value="golden-dawn">Hermetic Order of the Golden Dawn</option>
+              <option value="oto">Ordo Templi Orientis</option>
+              <option value="templars">Knights Templar Legacy</option>
+              <option value="theosophical">Theosophical Society</option>
+              <option value="university-societies">University Societies</option>
+              <option value="bohemian">Bohemian Club</option>
+              <option value="seven-society">Seven Society</option>
+              <option value="illuminati">Illuminati Tradition</option>
+              <option value="vampire">Vampire Subcultures</option>
+              <option value="goth">Goth/Alternative Communities</option>
+              <option value="pop-cabals">Pop Culture Secret Cabals</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="manifesto" data-i18n="form.manifesto">Intention Manifesto</label>
+            <textarea id="manifesto" name="manifesto" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span data-i18n="form.submit">Transmit Secure Request</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Loading Overlay -->
+  <div class="form-overlay" id="formOverlay">
+    <div class="overlay-content">
+      <div class="loading-spinner"></div>
+      <p class="loading-text" data-i18n="form.encrypting">Encrypting Transmission Data...</p>
+      <p class="loading-text" data-i18n="form.vetting">Vetting Candidate Routing...</p>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="success-modal" id="successModal">
+    <div class="success-content">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      <h3 data-i18n="form.successTitle">Transmission Secured</h3>
+      <p data-i18n="form.successMsg">Our network coordinators will route your profile through the correct channels.</p>
+      <button class="btn-close" id="closeSuccess" data-i18n="form.close">Acknowledge</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-text">Apex Meridian Global &copy; 2026. All rights reserved.</p>
+      <p class="footer-disclaimer" data-i18n="footer.disclaimer">Access is strictly token-gated and subject to vetting. Unauthorized monitoring is prohibited.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
