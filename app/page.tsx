@@ -115,6 +115,25 @@ const styles = `
   .mob-a { color:var(--txt-m); text-decoration:none; padding:0.875rem 0; font-size:0.9375rem; font-weight:600; border-bottom:1px solid var(--br); transition:color 0.2s; text-transform:uppercase; letter-spacing:0.05em; }
   .mob-a:hover { color:var(--txt); }
 
+  .groups { position:relative; }
+  .groups-b { padding:0.5rem 1rem; background:var(--bg-c); border:1px solid var(--br-s); border-radius:var(--radius); color:var(--txt-m); font-size:0.75rem; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:0.5rem; text-transform:uppercase; transition:var(--transition); }
+  .groups-b:hover { border-color:var(--red); color:var(--txt); }
+  .groups-d { position:absolute; top:calc(100% + 0.5rem); right:0; min-width:260px; background:var(--bg-e); border:1px solid var(--br); border-radius:var(--radius); box-shadow:var(--shadow); opacity:0; visibility:hidden; transform:translateY(-6px); transition:var(--transition); z-index:50; max-height:400px; overflow-y:auto; }
+  .groups-d.active { opacity:1; visibility:visible; transform:translateY(0); }
+  .groups-cat { margin-bottom:1rem; border-bottom:1px solid var(--br); padding-bottom:0.75rem; }
+  .groups-cat:last-child { margin-bottom:0; border-bottom:none; padding-bottom:0; }
+  .groups-cat-head { padding:0.625rem 1rem; font-size:0.8125rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:color 0.2s; }
+  .groups-cat-head:hover { color:var(--txt); }
+  .groups-list { display:flex; flex-direction:column; gap:0.375rem; padding:0 1rem 0.5rem 1rem; }
+  .groups-item { display:block; padding:0.5rem 0.75rem; background:transparent; border:none; border-left:2px solid transparent; border-radius:0 var(--radius) var(--radius) 0; color:var(--txt-m); font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.03em; transition:var(--transition); text-align:left; }
+  .groups-item:hover { background:var(--bg-c); color:var(--txt); border-left-color:var(--red); }
+
+  /* Mobile groups specific styles */
+  .mob-groups-b { width:100%; justify-content:space-between; }
+  .mob-groups-d { position:static !important; box-shadow:none !important; border:1px solid var(--br-s) !important; max-height:none !important; opacity:1 !important; visibility:visible !important; transform:none !important; width:100% !important; }
+  .mob-groups-cat-head { padding:0.625rem 1rem; }
+  .mob-groups-list { padding:0 1rem 0.5rem 1rem; }
+
   .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:7rem 1.5rem 4rem; max-width:1400px; margin:0 auto; position:relative; overflow:hidden; }
   .hero::before { content:''; position:absolute; inset:-10% -10% -10% -10%; background:radial-gradient(circle at 80% 20%, rgba(239,68,68,0.08), transparent 50%); z-index:0; pointer-events:none; }
   .hero > * { position:relative; z-index:1; }
@@ -278,13 +297,14 @@ const networksData = {
     { title: 'University Societies (Skull and Bones, Scroll and Key, Wolf\'s Head)', img: '/images/University Societies.jpg', vid: '', def: 'Elite senior societies established at Ivy League institutions, serving as career-spanning alumni networks for prominent leaders.', st: 'Strictly limited to co-opting a small, fixed number of select undergraduate students annually, maintaining secure private facilities.' },
     { title: 'The Bohemian Club (Bohemian Grove)', img: '/images/The Bohemian Club.jpg', vid: '', def: 'A private, exclusive club for artists, musicians, business leaders, and government officials founded in San Francisco.', st: 'Governed as a private gentleman\'s club hosting an annual multi-week summer encampment in Sonoma County, California.' },
     { title: 'The Seven Society', img: '/images/The Seven Society.jpg', vid: '', def: 'A highly secretive philanthropic and honorary society operating exclusively within the University of Virginia.', st: 'Absolute anonymity is maintained throughout a member\'s lifetime, with identities only revealed publicly after passing.' }
-  ]
+  ],
 };
 
 export default function Home() {
   const [lang, setLang] = useState<'en'|'fr'|'es'>('en');
   const [tab, setTab] = useState('alignment');
   const [mobOpen, setMobOpen] = useState(false);
+  const [groupsOpen, setGroupsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [overlay, setOverlay] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -301,6 +321,23 @@ export default function Home() {
   };
 
   const close = () => { setSuccess(false); setForm({ fullName:'', jobType:'', jobTitle:'', whatsapp:'', phone:'', email:'', alignment:'', manifesto:'' }); };
+
+  const scrollToNetwork = (category: string, title: string) => {
+    setTab(category as any);
+    setGroupsOpen(false);
+    setMobOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById(`card-${category}-${title.toLowerCase().replace(/[^a-z0-9]/g,'-')}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  };
+
+  const scrollToMatrix = () => {
+    setGroupsOpen(false);
+    setMobOpen(false);
+    const el = document.getElementById('matrix');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const media = (n: { title: string; img?: string; vid?: string }) => (
     <div className="card-m">
@@ -335,12 +372,43 @@ export default function Home() {
                 {['en','fr','es'].map(l=> <button key={l} className="lang-o" onClick={()=>{setLang(l as any);setLangOpen(false)}}>{l.toUpperCase()}</button>)}
               </div>
             </div>
+            <div className="groups">
+              <button className="groups-b" onClick={()=>setGroupsOpen(!groupsOpen)}>GROUPS <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+              <div className={`groups-d ${groupsOpen?'active':''}`}>
+                {['alignment','geopolitical','fraternities','clubs'].map(k=>{const c=CATEGORY_COLORS[k];return (
+                  <div key={k} className="groups-cat">
+                    <div className="groups-cat-head" style={{color:c.accent}} onClick={(e)=>{e.stopPropagation();setTab(k as any);setGroupsOpen(false);scrollToMatrix();}}>{l.tabs[k as keyof typeof l.tabs]}</div>
+                    <div className="groups-list">
+                      {(networksData[k as keyof typeof networksData]||[]).map(n=>(
+                        <a key={n.title} className="groups-item" onClick={(e)=>{e.preventDefault();scrollToNetwork(k,n.title);}} style={{borderLeft:`2px solid ${c.accent}`}}>{n.title}</a>
+                      ))}
+                    </div>
+                  </div>
+                )})}
+              </div>
+            </div>
             <a href="#gateway" className="btn-p">{l.nav.portal}</a>
           </div>
           <button className="mob-b" onClick={()=>setMobOpen(!mobOpen)}><span/><span/><span/></button>
         </div>
       </nav>
-      <div className={`mob-m ${mobOpen?'active':''}`}><a href="#matrix" className="mob-a" onClick={()=>setMobOpen(false)}>{l.nav.alliances}</a><a href="#gateway" className="mob-a" onClick={()=>setMobOpen(false)}>{l.nav.directives}</a><a href="#gateway" className="mob-a" onClick={()=>setMobOpen(false)}>{l.nav.portal}</a></div>
+      <div className={`mob-m ${mobOpen?'active':''}`}>
+        <a href="#matrix" className="mob-a" onClick={()=>{setMobOpen(false);scrollToMatrix();}}>{l.nav.alliances}</a>
+        <div className="groups mob-groups" style={{marginTop:'0.5rem'}}>
+          <button className="groups-b mob-groups-b" onClick={()=>{setMobOpen(false);setGroupsOpen(!groupsOpen);}}>GROUPS <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div className={`groups-d mob-groups-d ${groupsOpen?'active':''}`}>
+            {['alignment','geopolitical','fraternities','clubs'].map(k=>{const c=CATEGORY_COLORS[k];return (
+              <div key={k} className="groups-cat">
+                <div className="groups-cat-head mob-groups-cat-head" style={{color:c.accent}} onClick={(e)=>{e.stopPropagation();setTab(k as any);setGroupsOpen(false);scrollToMatrix();}}>{l.tabs[k as keyof typeof l.tabs]}</div>
+                <div className="groups-list mob-groups-list" style={{display:groupsOpen?'flex':'none'}}>
+                  {(networksData[k as keyof typeof networksData]||[]).map(n=>(<a key={n.title} className="groups-item mob-groups-item" onClick={(e)=>{e.preventDefault();scrollToNetwork(k,n.title);setMobOpen(false);}} style={{borderLeft:`2px solid ${c.accent}`}}>{n.title}</a>))}
+                </div>
+              </div>
+            )})}
+          </div>
+        </div>
+        <a href="#gateway" className="mob-a" onClick={()=>setMobOpen(false)}>{l.nav.portal}</a>
+      </div>
 
       <section className="hero" id="threshold">
         <div className="hero-grid">
@@ -348,7 +416,7 @@ export default function Home() {
             <div className="badge">{l.hero.badge}</div>
             <h1 className="hero-t">{l.hero.title}</h1>
             <p className="hero-s">{l.hero.subtitle}</p>
-            <div className="hero-ct"><a href="#gateway" className="btn-p1">{l.hero.cta1}</a><a href="#matrix" className="btn-s">{l.hero.cta2}</a></div>
+            <div className="hero-ct"><a href="#gateway" className="btn-p1">{l.hero.cta1}</a><a href="#matrix" className="btn-s" onClick={scrollToMatrix}>{l.hero.cta2}</a></div>
           </div>
           <div className="hero-visual">
             <div className="geo-frame">
@@ -369,7 +437,7 @@ export default function Home() {
               <div key={k} className={`tab-ct ${tab===k?'active':''}`}>
                 <div className="sec-h" style={{marginBottom:'1.5rem'}}><span className="sec-l" style={{borderColor:c.accent,color:c.accent}}>{l.matrix.label}</span><h2 className="sec-t" style={{color:c.accent}}>{k==='alignment'?l.matrix.title:l.tabs[k as keyof typeof l.tabs]}</h2></div>
                 <div className="grid">{(networksData[k as keyof typeof networksData]||[]).map((n,i)=>(
-                  <div key={i} className="card" style={{borderLeft:`3px solid ${c.accent}`}}><div className="card-i"><h3 className="card-t">{n.title}</h3><p className="card-d" style={{whiteSpace:'pre-line'}}>{n.def}</p><p className="card-st"><span>Structure:</span> {n.st}</p></div>{media(n)}</div>
+                  <div key={i} id={`card-${k}-${n.title.toLowerCase().replace(/[^a-z0-9]/g,'-')}`} className="card" style={{borderLeft:`3px solid ${c.accent}`}}><div className="card-i"><h3 className="card-t">{n.title}</h3><p className="card-d" style={{whiteSpace:'pre-line'}}>{n.def}</p><p className="card-st"><span>Structure:</span> {n.st}</p></div>{media(n)}</div>
                 ))}</div>
               </div>
             )})}
